@@ -23,17 +23,14 @@ class Random:
             next_seed = (self.next_seed * a + c) % m
         self.next_seed = next_seed
         random_percent = float(next_seed // m)
-
         return random_percent
 
     def choice(self, index: list):
         random_index = round((self.__generate_percentage() * (len(index) - 1)))
-
         return index[random_index]
 
     def randomint(self, minimum: int, maximum: int):
         index = [x for x in range(minimum, maximum + 1)]  # Generates a list of integers from the min to max.
-
         return self.choice(index)
 
     def randombytes(self, amount: int):
